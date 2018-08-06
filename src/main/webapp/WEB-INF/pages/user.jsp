@@ -22,26 +22,26 @@
 
     <%--<link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.png" />--%>
 
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/leaflet/leaflet.css" />
-    <script src="http://10.114.10.48:8080/sodu2016/lib/leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="js/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="js/leaflet/esri-leaflet-geocoder.css">
+    <link rel="stylesheet" href="js/leaflet/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="js/leaflet/Control.Geocoder.css" />
+    <link rel="stylesheet" href="js/leaflet/MarkerCluster.css" />
+    <link rel="stylesheet" href="js/leaflet/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="js/leaflet/Leaflet.PolylineMeasure.css" />
 
+    <script src="js/leaflet/leaflet.js"></script>
     <!-- Load Esri Leaflet from CDN -->
-    <script src="http://10.114.10.48:8080/sodu2016/lib/esri-leaflet-geocoder/esri-leaflet.js"></script>
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
-    <script src="http://10.114.10.48:8080/sodu2016/lib/esri-leaflet-geocoder/esri-leaflet-geocoder.js"></script>
-    <script src="http://10.114.10.48:8080/sodu2016/lib/leaflet.wms.js" data-main="app"></script>
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/routing-machine/leaflet-routing-machine.css" />
-    <script src="http://10.114.10.48:8080/sodu2016/lib/routing-machine/leaflet-routing-machine.js"></script>
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/control-geocoder/Control.Geocoder.css" />
-    <script src="http://10.114.10.48:8080/sodu2016/lib/control-geocoder/Control.Geocoder.js"></script>
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/markercluster/MarkerCluster.css" />
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/markercluster/MarkerCluster.Default.css" />
-    <script src="http://10.114.10.48:8080/sodu2016/lib/markercluster/leaflet.markercluster-src.js"></script>
-    <link rel="stylesheet" href="http://10.114.10.48:8080/sodu2016/lib/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
-    <script src="http://10.114.10.48:8080/sodu2016/lib/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
-    <script src="http://10.114.10.48:8080/sodu2016/lib/jquery-3.2.1.min.js"></script>
-    <script src="http://10.114.10.48:8080/sodu2016/lib/L.TileLayer.BetterWMS.js"></script>
-    <script src="http://10.114.10.48:8080/sodu2016/lib/purl.js"></script>
+    <script src="js/leaflet/esri-leaflet.js"></script>
+    <script src="js/leaflet/esri-leaflet-geocoder.js"></script>
+    <script src="js/leaflet/leaflet.wms.js" data-main="app"></script>
+    <script src="js/leaflet/routing-machine/leaflet-routing-machine.js"></script>
+    <script src="js/leaflet/Control.Geocoder.js"></script>
+    <script src="js/leaflet/leaflet.markercluster-src.js"></script>
+    <script src="js/leaflet/Leaflet.PolylineMeasure.js"></script>
+    <script src="js/leaflet/jquery-3.2.1.min.js"></script>
+    <script src="js/leaflet/L.TileLayer.BetterWMS.js"></script>
+    <script src="js/leaflet/purl.js"></script>
 
     <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
 
