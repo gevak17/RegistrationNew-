@@ -34,6 +34,9 @@ public class MainController {
     @Autowired
     GidrantService gidrantService;
 
+    @Autowired
+    UserLoginService userLoginService;
+
 //    @Autowired
 //    UserLoginService userLoginService;
 
@@ -56,8 +59,11 @@ public class MainController {
     }
 
     @GetMapping("/user")
-    public String userPage(Model model) {
-        Set<UserLogin> userLogins = DaoAuth.getUser().getUserLogins();
+    public String userPage(Principal principal, Model model) {
+//        System.out.println("principal - "+principal.getName());
+        User user = userService.findByUserName(principal.getName());
+        Set<UserLogin> userLogins = userLoginService.findByUser(user.getId());
+//        Set<UserLogin> userLogins = DaoAuth.getUser().getUserLogins();
         for (UserLogin userLogin : userLogins) {
             System.out.println(userLogin);
         }
@@ -65,12 +71,12 @@ public class MainController {
         return "user";
     }
 
-    @GetMapping("/findUser")
-    public @ResponseBody User findAuthorizedUser(){
-        User user = userService.findOne(DaoAuth.getUserId());
-        System.out.println("User name is - "+user.getName());
-        return user;
-    }
+//    @GetMapping("/findUser")
+//    public @ResponseBody User findAuthorizedUser(){
+//        User user = userService.findOne(DaoAuth.getUserId());
+//        System.out.println("User name is - "+user.getName());
+//        return user;
+//    }
 
     @GetMapping("/admin")
     public String adminPage(Model model) {
@@ -144,16 +150,17 @@ public class MainController {
 //    }
 
     @GetMapping("/findOneGidrant-{id}")
-    public @ResponseBody Gidrant findOneGidrant(@PathVariable("id") int id) {
+    public @ResponseBody Gidrant findOneGidrant(@PathVariable("id") int id, Principal principal) {
 //        DaoAuth.getUserId()
         Gidrant gidrant = gidrantService.findOne(id);
 //        System.out.printf("id:%s\tп:%s\t p:%s\n"
 //                ,gidrant.getId()
 //                , gidrant.getPidrozdil_id(),gidrant.getAdminrayon_id());
         System.out.printf("id: %s\tпідрозділ: %s\n",gidrant.getId(),gidrant.getPidrozdil_id());
-
-        User user = DaoAuth.getUser();
-        Set<UserLogin> userLogins = user.getUserLogins();
+        User user = userService.findByUserName(principal.getName());
+//        User user = DaoAuth.getUser();
+//        Set<UserLogin> userLogins = user.getUserLogins();
+        Set<UserLogin> userLogins = userLoginService.findByUser(user.getId());
         for (UserLogin userLogin : userLogins) {
             Integer pidrozdil_idLogin = userLogin.getPidrozdil_id();
 //            System.out.println("pidrozdil id login - "+pidrozdil_idLogin);
@@ -166,6 +173,8 @@ public class MainController {
         System.out.println("!!! Користувач не має право змінити гідрант");
         System.out.println(gidrant+"   ----   fail");
         return null;
+
+//        return gidrant;
     }
 
     @PostMapping("/editGidrant")

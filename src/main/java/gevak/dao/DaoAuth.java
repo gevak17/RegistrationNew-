@@ -54,7 +54,7 @@ public class DaoAuth extends AbstractUserDetailsAuthenticationProvider {
     private SaltSource saltSource;
 
     private UserDetailsService userDetailsService;
-    private static User user;
+//    private static User user;
 
     public DaoAuth() {
         setPasswordEncoder(new PlaintextPasswordEncoder());
@@ -92,29 +92,27 @@ public class DaoAuth extends AbstractUserDetailsAuthenticationProvider {
                     "Bad credentials"));
         }
         if(userDetails instanceof  User){
-            user = (User) userDetails;
-//            UserLoginServiceImpl userLoginService = new UserLoginServiceImpl();
-            user.setUserLogins(userLoginService.findByUser(user.getId()));
+//            user = (User) userDetails;
+//            user.setUserLogins(userLoginService.findByUser(user.getId()));
 
 
 //            System.out.println(userLoginService.findByUser(user.getPidrozdil_id()));
 //            userLoginService.findByUser(user.getPidrozdil_id());
-            System.out.printf("Користувач %s має доступ до ", user.getName());
-            for (UserLogin userLogin :user.getUserLogins()) {
-//                System.out.printf("%n\tпідрозділ - %s, район - %s ",userLogin.getPidrozdil_id(),userLogin.getAdminrayon_id());
-                System.out.printf("%n\tпідрозділ - %s ",userLogin.getPidrozdil_id());
-            }
-            System.out.println("\n!!!!!!!!!!!!!!!!!!!!!");
+//            System.out.printf("Користувач %s має доступ до ", user.getName());
+//            for (UserLogin userLogin :user.getUserLogins()) {
+//                System.out.printf("%n\tпідрозділ - %s ",userLogin.getPidrozdil_id());
+//            }
+//            System.out.println("\n!!!!!!!!!!!!!!!!!!!!!");
         }
 
     }
 
-    public static int getUserId() {
-        return user.getId();
-    }
-    public static User getUser() {
-        return user;
-    }
+//    public static int getUserId() {
+//        return user.getId();
+//    }
+//    public static User getUser() {
+//        return user;
+//    }
 
     protected void doAfterPropertiesSet() throws Exception {
         Assert.notNull(this.userDetailsService, "A UserDetailsService must be set");
